@@ -57,9 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // valdiation function for the current step
     const isValidStep = () => {
         // select all of the input elements from the active step
-        const fields = steps[currentStep].querySelectorAll('input');
+        const fields = steps[currentStep].querySelectorAll('input:not([type="checkbox"])');
         // convert the fields to an array
-        return [...fields].every(field => field.reportValidity());
+        const textInputsValid = [...fields].every(field => field.reportValidity());
+
+        // ff it's the checkbox step, add checkbox validation
+        if (currentStep === 1) {
+            const checkboxes = document.querySelectorAll('input[name="mycheckboxes"]');
+            const isCheckboxChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+            if (!isCheckboxChecked) {
+                alert ('Pleaase select at least one topic');
+                return false;
+            }
+            // Return true only if both text inputs are valid and at least one checkbox is checked
+            return textInputsValid && isCheckboxChecked;
+        }
+
+        // For other steps, just return text input validity
+        return textInputsValid;
 
     }
 
