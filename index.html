@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="resources/styles/style.css">
+        <script src="resources/javascript/script.js" defer></script>
+        <title>Registration form</title>
+    </head>
+    <body>
+        <main>
+            <form action="" class="form-wizard">
+                
+                <!--Content-->
+                <div class="steps-container">
+                    <div class="step">
+                        <h1 class="register">Register</h1>
+                        
+                        <div class="form-control">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="enter your name" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="exaple@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <h1 class="topics">Which topics you are interested in?</h1>
+                        
+                        <div class="form-control checkboxes">
+                            <input type="checkbox" name="mycheckboxes" id="software-development" value="Software development">
+                            <label for="software-development">Software development</label>
+
+                            <input type="checkbox" name="mycheckboxes" id="user-experience" value="User experience">
+                            <label for="user-experience">User experience</label>
+
+                            <input type="checkbox" name="mycheckboxes" id="graphic-design" value="Graphic design">
+                            <label for="graphic-design">Graphic Design</label>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <h1 class="summary">Summary</h1>
+                        <div class="summary-name-container">
+                            <p class="summary-name">Name: </p><p class="summary-name-content"></p>
+                        </div>
+
+                        <div class="summary-email-container">
+                            <p class="summary-email">Email: </p><p class="summary-email-content"></p>
+                        </div>
+
+                        <p class="summary-topics">Topics:</p>
+                        <ul class="summary-topics-content"></ul>
+                    </div>
+                </div>
+
+                <!--Controls-->
+                <div class="controls">
+                    <button type="button" class="continue">Continue</button>
+                </div>
+            </form>
+
+            <!--Progress dots-->
+            <div class="progress-container">
+                <p class="progress-text">Step 1 of 3</p>
+                <ol>
+                    <li class="current"></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </main>
+    </body>
+</html>
