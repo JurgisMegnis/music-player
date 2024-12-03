@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector(".form-wizard");
     const stepIndicators = document.querySelectorAll(".progress-container li");
     const stepsContainer = document.querySelector(".steps-container");
     const nameInput = document.querySelector("#name");
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll(".step");
     const progressText = document.querySelector("p.progress-text");
     const continueButton = document.querySelector(".continue");
+    const confirmButtom = document.querySelector(".confirm");
 
     // current step tracking
     let currentStep = 0;
@@ -63,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ff it's the checkbox step, add checkbox validation
         if (currentStep === 1) {
-            const checkboxes = document.querySelectorAll('input[name="mycheckboxes"]');
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const isCheckboxChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
             if (!isCheckboxChecked) {
-                alert ('Pleaase select at least one topic');
+                alert ('Please select at least one topic');
                 return false;
             }
             // Return true only if both text inputs are valid and at least one checkbox is checked
@@ -98,9 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateProgress();
         }
 
-        // changes the button text to 'Confirm' on the last step
+        // switches out the continue button to submit button
         if(currentStep === 2) {
-            continueButton.textContent = "Confirm";
+            continueButton.hidden = true;
+            confirmButtom.hidden = false;
         }   
     });
 
@@ -109,6 +112,34 @@ document.addEventListener('DOMContentLoaded', () => {
         checkbox.addEventListener('change', updateCheckedValues);
     });
 
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); //prevent form submission
+
+        // prevent the form submission if it's not valid
+        if(!form.checkValidity()) return;
+
+        // collecting the form data
+        const formData = new FormData(form);
+
+        // retrieve all checked checbox values with name="mycheckboxes"
+        const selectedTopics = formData.getAll('topics');
+
+        // convert formData to an object and add the checked values
+        const formDataObj = Object.fromEntries(formData);
+        formDataObj.topics = selectedTopics;
+
+        // send the data somewhere
+        console.log(formDataObj);
+
+        // disbles the submit button
+        confirmButtom.disabled = true;
+        confirmButtom.textContent = 'Submitting';
+
+        // mimic a server request
+        setTimeout(() => {
+            alert("Successfully submitted!");
+        }, 3000);
+    });
 
     updateProgress();
 })

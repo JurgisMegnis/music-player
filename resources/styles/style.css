@@ -160,6 +160,10 @@ ul li {
 .controls button:focus {
   outline-color: #E5E7EB;
 }
+.controls button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 .form-wizard {
   background-color: #212936;

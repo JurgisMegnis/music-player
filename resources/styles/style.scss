@@ -185,6 +185,12 @@ ul {
         &:focus {
             outline-color: $primary-light;
         }
+
+        &:disabled {
+            opacity: .5;
+            pointer-events: none;
+
+        }
     }
 }
 
