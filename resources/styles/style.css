@@ -11,6 +11,24 @@ body {
   color: #E5E7EB;
   display: grid;
   place-items: center;
+  overflow: hidden;
+}
+body .background-elem {
+  width: 80vw;
+  height: 90vh;
+  background-image: url("../images/blur-radial.svg");
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform-origin: 0 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+body .background-elem-1 {
+  transform: translate(-50%, -50%);
+}
+body .background-elem-2 {
+  transform: translate(50%, 50%);
 }
 body main {
   display: flex;
@@ -187,6 +205,9 @@ ul li {
   opacity: 1;
 }
 
+.progress-container {
+  position: relative;
+}
 .progress-container p {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -195,6 +216,13 @@ ul li {
   color: #394150;
   display: inline-block;
   margin-right: 2rem;
+  position: absolute;
+  margin: 0;
+  width: 80px;
+  right: 110px;
+  height: 20px;
+  vertical-align: middle;
+  line-height: 22px;
 }
 .progress-container ol, .progress-container li {
   display: inline-block;
@@ -211,4 +239,25 @@ ul li {
 }
 .progress-container .current {
   box-shadow: 0 0 0 5px rgba(132, 94, 238, 0.2);
+}
+
+@media (max-width: 850px) {
+  body .background-elem {
+    width: 110vw;
+    height: 90vh;
+    background-image: url("../images/blur-radial.svg");
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform-origin: 0 0;
+  }
+  body .background-elem-1 {
+    transform: translate(-50%, -50%);
+  }
+  body .background-elem-2 {
+    transform: translate(50%, 50%);
+  }
+  body main {
+    width: min(550px, 75%);
+  }
 }/*# sourceMappingURL=style.css.map */
