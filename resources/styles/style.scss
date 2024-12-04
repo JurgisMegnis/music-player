@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.audio-controls {
+    .prev {
+        background-color: transparent;
+        border: none;
+
+        .i-prev {
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-image: url("../images/Stop_and_play_fill-1.svg");
+        }
+    }
+
+    .play-pause {
+        background-color: transparent;
+        border: none;
+        .i-play-pause {
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-image: url("../images/Play_fill.svg");
+        }
+    }
+
+    .next {
+        background-color: transparent;
+        border: none;
+
+        .i-next {
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-image: url("../images/Stop_and_play_fill.svg");
+        }
+    }
+}
