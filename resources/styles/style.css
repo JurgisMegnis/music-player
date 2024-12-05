@@ -2,33 +2,108 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", serif;
 }
 
-.audio-controls .prev {
+body {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background-image: url(../images/bg.jpg);
+}
+
+.player {
+  width: 90%;
+  max-width: 320px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(18, 24, 38, 0.6509803922);
+  padding: 24px;
+  border-radius: 16px;
+}
+.player .track-info img {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.player .track-info h2 {
+  font-family: "Inter", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #E5E7EB;
+  margin-bottom: 0.25rem;
+}
+.player .track-info h3 {
+  font-family: "Inter", serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #4D5562;
+  margin-bottom: 1.5rem;
+}
+.player .seek-slider {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.player .seek-slider input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+.player .seek-slider input::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  width: 0;
+  height: 0;
+  box-shadow: -360px 0 0 360px #C93B76;
+}
+.player .seek-slider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  box-shadow: -360px 0 0 360px #C93B76;
+}
+.player .seek-slider span {
+  font-family: "Inter", serif;
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: #4D5562;
+  margin-bottom: 0.3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.player .audio-controls .prev {
   background-color: transparent;
   border: none;
 }
-.audio-controls .prev .i-prev {
+.player .audio-controls .prev .i-prev {
   display: block;
   width: 32px;
   height: 32px;
   background-image: url("../images/Stop_and_play_fill-1.svg");
 }
-.audio-controls .play-pause {
+.player .audio-controls .play-pause {
   background-color: transparent;
   border: none;
 }
-.audio-controls .play-pause .i-play-pause {
+.player .audio-controls .play-pause .i-play-pause {
   display: block;
   width: 32px;
   height: 32px;
   background-image: url("../images/Play_fill.svg");
 }
-.audio-controls .next {
+.player .audio-controls .next {
   background-color: transparent;
   border: none;
 }
-.audio-controls .next .i-next {
+.player .audio-controls .next .i-next {
   display: block;
   width: 32px;
   height: 32px;
