@@ -25,6 +25,7 @@ body {
 .player .track-info img {
   border-radius: 8px;
   margin-bottom: 1rem;
+  width: 100%;
 }
 .player .track-info h2 {
   font-family: "Inter", serif;
