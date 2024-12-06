@@ -12,6 +12,7 @@ $primary-light: #E5E7EB;
 $grey-100: #121826a6;
 $grey-200: #4D5562;
 $primary-accent: #C93B76;
+$primary-accent-transparent: #C93B7660;
 
 // typography
 @mixin track-name {
@@ -72,6 +73,7 @@ body {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-bottom: 2rem;
 
         input {
             appearance: none;
@@ -109,38 +111,47 @@ body {
     }
 
     .audio-controls {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+
         .prev {
+            cursor: pointer;
             background-color: transparent;
             border: none;
+            color: $grey-200;
+            transition: color 0.2s ease;
 
-            .i-prev {
-                display: block;
-                width: 32px;
-                height: 32px;
-                background-image: url("../images/Stop_and_play_fill-1.svg");
+            &:hover {
+                color: $primary-accent;
             }
         }
 
         .play-pause {
-            background-color: transparent;
+            cursor: pointer;
+            background-color: $primary-accent;
+            width: 48px;
+            height: 48px;
+            padding-top: .2rem;
             border: none;
-            .i-play-pause {
-                display: block;
-                width: 32px;
-                height: 32px;
-                background-image: url("../images/Play_fill.svg");
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px $primary-accent-transparent);
+            transition: filter 0.3s ease;
+
+            &:hover {
+                filter: drop-shadow(0 0 6px $primary-accent);
             }
         }
 
         .next {
+            cursor: pointer;
             background-color: transparent;
             border: none;
+            color: $grey-200;
+            transition: color 0.2s ease;
 
-            .i-next {
-                display: block;
-                width: 32px;
-                height: 32px;
-                background-image: url("../images/Stop_and_play_fill.svg");
+            &:hover {
+                color: $primary-accent;
             }
         }
     }

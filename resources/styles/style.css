@@ -44,6 +44,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 .player .seek-slider input {
   -webkit-appearance: none;
@@ -79,33 +80,42 @@ body {
      -moz-user-select: none;
           user-select: none;
 }
+.player .audio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
 .player .audio-controls .prev {
+  cursor: pointer;
   background-color: transparent;
   border: none;
+  color: #4D5562;
+  transition: color 0.2s ease;
 }
-.player .audio-controls .prev .i-prev {
-  display: block;
-  width: 32px;
-  height: 32px;
-  background-image: url("../images/Stop_and_play_fill-1.svg");
+.player .audio-controls .prev:hover {
+  color: #C93B76;
 }
 .player .audio-controls .play-pause {
-  background-color: transparent;
+  cursor: pointer;
+  background-color: #C93B76;
+  width: 48px;
+  height: 48px;
+  padding-top: 0.2rem;
   border: none;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px rgba(201, 59, 118, 0.3764705882));
+  transition: filter 0.3s ease;
 }
-.player .audio-controls .play-pause .i-play-pause {
-  display: block;
-  width: 32px;
-  height: 32px;
-  background-image: url("../images/Play_fill.svg");
+.player .audio-controls .play-pause:hover {
+  filter: drop-shadow(0 0 6px #C93B76);
 }
 .player .audio-controls .next {
+  cursor: pointer;
   background-color: transparent;
   border: none;
+  color: #4D5562;
+  transition: color 0.2s ease;
 }
-.player .audio-controls .next .i-next {
-  display: block;
-  width: 32px;
-  height: 32px;
-  background-image: url("../images/Stop_and_play_fill.svg");
+.player .audio-controls .next:hover {
+  color: #C93B76;
 }/*# sourceMappingURL=style.css.map */
