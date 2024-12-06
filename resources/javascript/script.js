@@ -1,6 +1,6 @@
 // state
 
-const state = { activeTrack: 0};
+const state = { activeTrack: 0, initPlay: false };
 
 //selectors
 
@@ -33,6 +33,9 @@ const setupEventListeners = () => {
     
     // player events
     ui.playPauseBtn.addEventListener("click", playPauseTrack);
+    ui.prevBtn.addEventListener("click", prevTrack);
+    ui.nextBtn.addEventListener("click", nextTrack);
+    ui.seekBar.addEventListener("change", updateSeekBar);
 
     // audio events
     audio.addEventListener("timeupdate", updateTime);
@@ -43,6 +46,20 @@ const setupEventListeners = () => {
 
 // event handlers
 
+const updateSeekBar = () => {
+    audio.currentTime = (ui.seekBar.value / 100) * audio.duration;
+}
+
+const nextTrack = () => {
+    state.activeTrack = (state.activeTrack + 1) % tracks.length;
+    loadTrack();
+}
+
+const prevTrack = () => {
+    state.activeTrack = (state.activeTrack - 1 + tracks.length) % tracks.length;
+    loadTrack();
+}
+
 const playPauseTrack = () => {
     if (audio.paused) {
         audio.play();
@@ -52,6 +69,8 @@ const playPauseTrack = () => {
         audio.pause();
         ui.playPauseBtn.innerHTML = '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.941 14.244L14.119 10.236C12.686 9.50176 11 10.5696 11 12.2115V19.7885C11 21.4304 12.686 22.4982 14.119 21.764L21.941 17.756C23.353 17.0325 23.353 14.9675 21.941 14.244Z" fill="#E5E7EB"/></svg>';
     }
+
+    if(!state.initPlay) state.initPlay = true;
 }
 
 const updateTime = () => {
@@ -72,6 +91,7 @@ const updateTrackInfo = () => {
 
 const loadTrack = () => {
     audio.src = tracks[state.activeTrack].path;
+    state.initPlay && playPauseTrack();
 }
 
 const formatTime = (time) => {
